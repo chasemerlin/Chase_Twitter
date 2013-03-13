@@ -11,4 +11,13 @@ body .container {
 	font-size: 1.3em;
 }
 
+.footer {
+	border-top: solid black 1px;
+	margin-top: 40px;
+}
+
+.hero-unit p {
+	padding-top: 20px;
+}
+
 @import "bootstrap-responsive";
