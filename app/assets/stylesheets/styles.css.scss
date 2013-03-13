@@ -1,7 +1,14 @@
+$baseFontFamily: Patrick Hand SC;
+@import url(http://fonts.googleapis.com/css?family=Patrick+Hand+SC);
+
 @import "bootstrap";
 
 body {
 	padding-top: 45px;
+}
+
+body .container {
+	font-size: 1.3em;
 }
 
 @import "bootstrap-responsive";
