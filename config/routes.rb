@@ -1,4 +1,7 @@
 ChaseTwitter::Application.routes.draw do
+  resources :posts
+
+
   devise_for :basic_users
 
   root :to => 'pages#home'
