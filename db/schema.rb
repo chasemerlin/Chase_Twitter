@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130314212059) do
+ActiveRecord::Schema.define(:version => 20130314213420) do
 
   create_table "basic_users", :force => true do |t|
     t.string   "email",                  :default => "", :null => false
@@ -36,8 +36,11 @@ ActiveRecord::Schema.define(:version => 20130314212059) do
     t.string   "title"
     t.string   "content"
     t.boolean  "private"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.datetime "created_at",    :null => false
+    t.datetime "updated_at",    :null => false
+    t.integer  "basic_user_id"
   end
+
+  add_index "posts", ["basic_user_id"], :name => "index_posts_on_basic_user_id"
 
 end
