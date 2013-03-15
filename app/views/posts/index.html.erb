@@ -1,5 +1,5 @@
-<h1>Listing posts</h1>
 
+<h1>My Posts</h1>
 <table class="table table-hover">
   <thead>
     <tr>
@@ -10,9 +10,9 @@
     </tr>
   </thead>
   <tbody>
-<% @posts.each do |post| %>
+<% @my_posts.each do |post| %>
   <tr>
-    <td><%= post.basic_user %></td>
+    <td><%= post.basic_user.name %></td>
     <td><%= post.title %></td>
     <td><%= post.content %></td>
     <td><%= post.private %></td>
@@ -25,5 +25,30 @@
 </table>
 
 <br />
+
+<h1>Public posts</h1>
+<table class="table table-hover">
+  <thead>
+    <tr>
+      <th>User</th>
+      <th>Title</th>
+      <th>Content</th>
+    </tr>
+  </thead>
+  <tbody>
+<% @public_posts.each do |post| %>
+  <% if post.basic_user != current_basic_user %>
+    <tr>
+      <td><%= post.basic_user.name %></td>
+      <td><%= post.title %></td>
+      <td><%= post.content %></td>
+      <td><%= link_to 'Show', post %></td>
+    </tr>
+  <% end %>
+<% end %>
+</tbody>
+</table>
+
+<br/>
 
 <%= link_to 'New Post', new_post_path %>
