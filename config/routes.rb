@@ -4,10 +4,9 @@ ChaseTwitter::Application.routes.draw do
 
   devise_for :basic_users
 
-  root :to => 'pages#home'
+  root :to => 'posts#index'
 
   get "about" => 'pages#about'
-
   get "contact" => 'pages#contact'
 
   # The priority is based upon order of creation:
