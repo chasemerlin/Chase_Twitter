@@ -4,18 +4,16 @@
   <%= @post.basic_user.name %>
 </p>
 <p>
-  <b>Title:</b>
-  <%= @post.title %>
-</p>
-
-<p>
-  <b>Content:</b>
+  <b>Message:</b>
   <%= @post.content %>
 </p>
 
 <p>
-  <b>Private:</b>
-  <%= @post.private %>
+  <% if @post.private %>
+        Private
+        <% else %>
+        Public
+        <% end %>
 </p>
 <% if current_basic_user == @post.basic_user %>
 <%= link_to 'Edit', edit_post_path(@post) %> |

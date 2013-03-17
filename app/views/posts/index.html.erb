@@ -7,7 +7,7 @@
 </div>
 <% @my_posts.each do |post| %>
   <div class="post">
-      <p><%= post.basic_user.name %></p>
+      <p><strong><%= post.basic_user.name %></strong></p>
       <p><%= post.content %></p>
       <p><small>
         <% if post.private %>
@@ -32,7 +32,7 @@
 <% @public_posts.each do |post| %>
   <% if post.basic_user != current_basic_user %>
     <div class= "post">
-      <p><%= post.basic_user.name %></p>
+      <p><strong><%= post.basic_user.name %></strong></p>
       <p><%= post.content %></p>
       <small class= "options"><%= link_to "#{time_ago_in_words(post.created_at)} ago", post %></small>
     </div>
