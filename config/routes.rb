@@ -4,7 +4,7 @@ ChaseTwitter::Application.routes.draw do
 
   devise_for :basic_users
 
-  root :to => 'posts#index'
+  root :to => 'pages#home'
 
   get "about" => 'pages#about'
   get "contact" => 'pages#contact'

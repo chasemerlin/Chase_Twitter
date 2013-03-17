@@ -13,7 +13,7 @@ body .container {
 
 .footer {
 	border-top: solid black 1px;
-	margin-top: 40px;
+	margin-top: 50px;
 }
 
 .hero-unit p {
@@ -22,6 +22,28 @@ body .container {
 
 .hero-blue {
 	background-color: #0099ff
+}
+
+.post {
+	margin-bottom: 14px;
+	padding: 6px 0;
+	border-bottom: solid black 1px;
+}
+
+.post .admin{
+	display:none;
+}
+
+.post:hover {
+	background: #FAFAFA;
+}
+
+.post:hover .admin{
+	display:inline;
+}
+
+.head-button {
+	margin-left: 15px;
 }
 
 @import "bootstrap-responsive";

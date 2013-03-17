@@ -1,57 +1,43 @@
-<div class="hero-unit text-center">
+<div class="hero-unit hero-blue text-center">
     <h1>Chase's Mini Twitter App!</h1>
   </div>
 
-<h1>My Posts</h1>
-<table class="table table-hover">
-  <thead>
-    <tr>
-      <th>User</th>
-      <th>Title</th>
-      <th>Content</th>
-      <th>Private</th>
-    </tr>
-  </thead>
-  <tbody>
+
+<div class="page-header"><h1>My Posts<%= link_to 'New Post', new_post_path, class: "btn btn-primary head-button" %></h1>
+</div>
 <% @my_posts.each do |post| %>
-  <tr>
-    <td><%= post.basic_user.name %></td>
-    <td><%= post.title %></td>
-    <td><%= post.content %></td>
-    <td><%= post.private %></td>
-    <td><%= link_to 'Show', post %></td>
-    <td><%= link_to 'Edit', edit_post_path(post) %></td>
-    <td><%= link_to 'Destroy', post, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-  </tr>
+  <div class="post">
+      <p><%= post.basic_user.name %></p>
+      <p><%= post.content %></p>
+      <p><small>
+        <% if post.private %>
+        Private
+        <% else %>
+        Public
+        <% end %>
+      </small></p>
+      <small class="options">
+      <%= link_to "#{time_ago_in_words(post.created_at)} ago", post %> 
+      <span class= "admin">
+       | <%= link_to 'Edit', edit_post_path(post) %> |
+        <%= link_to 'Destroy', post, method: :delete, data: { confirm: 'Are you sure?' } %>
+      </span>
+      </small>
+  </div>
 <% end %>
-</tbody>
-</table>
 
 <br />
 
-<h1>Public posts</h1>
-<table class="table table-hover">
-  <thead>
-    <tr>
-      <th>User</th>
-      <th>Title</th>
-      <th>Content</th>
-    </tr>
-  </thead>
-  <tbody>
+<h1 class="page-header">Public Community Posts</h1>
 <% @public_posts.each do |post| %>
   <% if post.basic_user != current_basic_user %>
-    <tr>
-      <td><%= post.basic_user.name %></td>
-      <td><%= post.title %></td>
-      <td><%= post.content %></td>
-      <td><%= link_to 'Show', post %></td>
-    </tr>
+    <div class= "post">
+      <p><%= post.basic_user.name %></p>
+      <p><%= post.content %></p>
+      <small class= "options"><%= link_to "#{time_ago_in_words(post.created_at)} ago", post %></small>
+    </div>
   <% end %>
 <% end %>
-</tbody>
-</table>
 
 <br/>
 
-<%= link_to 'New Post', new_post_path %>
